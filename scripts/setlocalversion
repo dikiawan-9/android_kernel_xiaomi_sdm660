@@ -69,6 +69,7 @@ scm_version()
 				echo "+"
 				return
 			fi
+<<<<<<< HEAD
 			# If we are past a tagged commit (like
 			# "v2.6.30-rc5-302-g72357d5"), we pretty print it and
 			# include the hash of any new tag on top.
@@ -93,16 +94,13 @@ scm_version()
 				printf '%s%s' -g $head
 				printf '%s%s'
 			fi
+=======
+>>>>>>> 819511641d01... scripts: completely remove dirty version
 		fi
 
 		# Is this git on svn?
 		if git config --get svn-remote.svn.url >/dev/null; then
 			printf -- '-svn%s' "`git svn find-rev $head`"
-		fi
-
-		# Check for uncommitted changes
-		if git diff-index --name-only HEAD | grep -qv "^scripts/package"; then
-			printf '%s'
 		fi
 
 		# All done with git
