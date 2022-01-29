@@ -1123,7 +1123,6 @@ ffs_epfile_open(struct inode *inode, struct file *file)
 	file->private_data = epfile;
 	ffs_data_opened(epfile->ffs);
 
-<<<<<<< HEAD
 	smp_mb__before_atomic();
 	atomic_set(&epfile->error, 0);
 	first_read_done = false;
