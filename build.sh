@@ -21,10 +21,10 @@ mkdir -p out
 make O=out clean
 make O=out mrproper
 make O=out ARCH=arm64 ${DEVICE_NAME}_defconfig
-PATH="/home/diki/proton/bin:${PATH}" \
+PATH="/home/diki/proton-clang/bin:${PATH}" \
 make -j$(nproc --all) O=out \
 ARCH=arm64 \
-CC="ccache /home/diki/proton/bin/clang" \
+CC="ccache /home/diki/proton-clang/bin/clang" \
 CROSS_COMPILE=aarch64-linux-gnu- \
 CROSS_COMPILE_ARM32=arm-linux-gnueabi-
 
@@ -40,5 +40,4 @@ rm AnyKernel3/Image.gz-dtb
 BUILD_END=$(date +"%s")
 DIFF=$(($BUILD_END - $BUILD_START))
 cd out
-rclone copy *.zip fel:garudanew
 echo -e "Done"
