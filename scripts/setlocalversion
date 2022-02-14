@@ -89,12 +89,9 @@ scm_version()
 			# If we don't have a tag at all we print -g{commitish},
 			# again using exactly 12 hex chars.
 			else
-<<<<<<< HEAD
 				head="$(echo $head | cut -c1-12)"
 				printf '%s%s' -g $head
-=======
 				printf '%s%s'
->>>>>>> 5fa8278c3459... scripts: remove dirty version
 			fi
 		fi
 
